@@ -1,4 +1,4 @@
-/*package services;
+package services;
 
 import com.google.j2objc.annotations.Weak;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
@@ -10,4 +10,4 @@ public interface SearchUtils {
 
 
 
-}*/
+}

@@ -3,23 +3,24 @@ package tests;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.solvd.pages.HomePage;
 import com.solvd.pages.SignInPage;
+import com.solvd.pages.SignUpPage;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import services.LogInUtils;
+import services.SignUpUtils;
 //import services.SearchUtils;
 //import services.SignUpUtils;
 
-public class GsmTests implements IAbstractTest, LogInUtils {
+public class GsmTests implements IAbstractTest, LogInUtils, SignUpUtils {
 
-/*
+
     @Test
-    public void assertWelcomeMessage(){
-        SignUpPage signUp = clickLoginButton(getDriver());
-        Assert.assertEquals(signUp.(), "Sign Up", "ERROR, NOT THE SAME");
-
-    }*/
+    public void assertWelcomeMessage() {
+        SignUpPage signUp = succesfulSignUp(getDriver());
+        Assert.assertEquals(signUp.welcomeString(), "Sign Up", "ERROR, NOT THE SAME");
+    }
 
     @Test
     public void loginSuccesful() {
@@ -27,19 +28,36 @@ public class GsmTests implements IAbstractTest, LogInUtils {
         Assert.assertEquals(signInPage.userInfo(), " tomasbraino - user account", "NOT THE SAME");
     }
 
-
     @Test
     public void validateEmptyEmailLogin() {
-        HomePage homePage = emptyEmail(getDriver());
+        HomePage homePage = emptyEmailLogIn(getDriver());
         Assert.assertEquals(email, "", "The email field is empty");
 
     }
 
-   /* @Test
+    @Test
     public void validateEmptyPasswordLogin() {
         emptyPassword(getDriver());
         Assert.assertTrue(true, "The password is empty");
-    }*/
+    }
+
+    @Test
+    public void validateEmptyEmailSignUp() {
+        SignUpPage signUpPage = emptyEmailSignUp(getDriver());
+        Assert.assertEquals(signUpPage.getSubmitStatus(), "disable", "The email is empty");
+    }
+
+    @Test
+    public void validateInvalidEmailSignUp() {
+        SignUpPage signUpPage = invalidEmail(getDriver());
+        Assert.assertEquals(signUpPage.getSubmitStatus(), "disable", "You must complte all the fields");
+    }
+
+    @Test
+    public void validateInvalidNameSignUp(){
+        SignUpPage signUpPage = emptyNickNameSignUp(getDriver());
+        Assert.assertTrue(true,"Nickname invalid");
+    }
 
 
 }

@@ -26,11 +26,10 @@ public interface LogInUtils {
     }
 
 
-    default HomePage emptyEmail(WebDriver driver) {
+    default HomePage emptyEmailLogIn(WebDriver driver) {
         HomePage homePage = clickLoginButton(driver);
         homePage.fillPasswordField(password);
         homePage.clickSignInButton();
-        homePage.return();
         return homePage;
 
     }
