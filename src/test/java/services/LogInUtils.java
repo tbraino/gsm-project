@@ -17,18 +17,20 @@ public interface LogInUtils {
     }
 
     default SignInPage succesfulLogin(WebDriver driver) {
-        HomePage homePage = new HomePage(driver);
+        HomePage homePage = clickLoginButton(driver);
         homePage.fillEmailField(email);
         homePage.fillPasswordField(password);
         homePage.clickSignInButton();
+        homePage.clickUserButton();
         return new SignInPage(driver);
     }
 
 
     default HomePage emptyEmail(WebDriver driver) {
-        HomePage homePage = new HomePage(driver);
-        homePage.clickLoginButton1();
+        HomePage homePage = clickLoginButton(driver);
         homePage.fillPasswordField(password);
+        homePage.clickSignInButton();
+        homePage.return();
         return homePage;
 
     }

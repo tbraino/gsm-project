@@ -13,6 +13,10 @@ public class SignInPage extends AbstractPage {
     @FindBy(xpath = "//*[@id=\"body\"]/div/div[1]/div/div/div[2]/div/h1")
     private ExtendedWebElement userInfo;
 
+    @FindBy(xpath = "//*[@id=\"login-active\"]/i")
+    private ExtendedWebElement userButton;
+
+
     @FindBy(xpath = "//*[@id=\"body\"]/div/div[2]")
     private ExtendedWebElement errorMessage;
 
@@ -20,6 +24,16 @@ public class SignInPage extends AbstractPage {
     public SignInPage(WebDriver driver) {
         super(driver);
     }
+
+    public void clickUserButton() {
+        userButton.clickIfPresent();
+    }
+
+    public String userInfo(){
+        return userInfo.getText();
+    }
+
+
 
 
 

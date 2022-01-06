@@ -32,6 +32,9 @@ public class HomePage extends AbstractPage {
     @FindBy(xpath = "//*[@id=\"social-connect\"]/a[8]/i")
     private ExtendedWebElement logOutButton;
 
+    @FindBy(xpath = "//*[@id=\"login-active\"]/i")
+    private ExtendedWebElement userButton;
+
     @FindBy(xpath = "//*[@id=\"topsearch-text\"]")
     private ExtendedWebElement searchField;
 
@@ -70,10 +73,16 @@ public class HomePage extends AbstractPage {
         logOutButton.clickIfPresent();
         return new HomePage(driver);
     }
+    public HomePage clickUserButton() {
+        userButton.clickIfPresent();
+        return new HomePage(driver);
+    }
 
     public SearchField clickSearch() {
         searchField.clickIfPresent();
         return new SearchField(driver);
     }
+
+
 
 }

@@ -1,2 +1,0 @@
-[2022-01-06 11:09:04] [IMessager.java] [1] [INFO] INFO: '**************** Test execution summary ****************'.
-[2022-01-06 11:09:04] [IMessager.java] [1] [INFO] RESULT #1: TEST [gsm-project - validateEmptyEmailLogin] FAIL [log=file:///Users/tomasbrainovich/IdeaProjects/gsm-project/./reports/1641478141193/0305c9fe-8454-4513-a044-f84b1fbc6754/test.log]

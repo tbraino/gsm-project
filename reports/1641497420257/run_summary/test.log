@@ -1,0 +1,2 @@
+[2022-01-06 04:30:57] [IMessager.java] [1] [INFO] INFO: '**************** Test execution summary ****************'.
+[2022-01-06 04:30:57] [IMessager.java] [1] [INFO] RESULT #1: TEST [gsm-project - loginSuccesful] FAIL [screenshots=file:///Users/tomasbrainovich/IdeaProjects/gsm-project/./reports/1641497420257/2b8a4cc8-e094-42ae-8350-c5731cb830d8/report.html | log=file:///Users/tomasbrainovich/IdeaProjects/gsm-project/./reports/1641497420257/2b8a4cc8-e094-42ae-8350-c5731cb830d8/test.log]

@@ -1,4 +1,4 @@
-/*
+
 package services;
 
 import com.solvd.pages.HomePage;
@@ -11,15 +11,17 @@ public interface SignUpUtils {
     String email = ;
     String password = ;
 
-    default SignInPage goToSignInPage(WebDriver driver){
+    default SignInPage goToSignInPage(WebDriver driver) {
         HomePage homePage = new HomePage(driver);
         homePage.clickSignUpButton();
+
         return new SignInPage(driver);
     }
 
-    default SignInPage fillFormField(WebDriver driver){
+    default HomePage fillNewForm(WebDriver driver){
+        SignInPage signInPage = goToSignInPage(driver);
 
     }
 
 }
-*/
+

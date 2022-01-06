@@ -2,6 +2,7 @@ package tests;
 
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.solvd.pages.HomePage;
+import com.solvd.pages.SignInPage;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
@@ -12,21 +13,27 @@ import services.LogInUtils;
 
 public class GsmTests implements IAbstractTest, LogInUtils {
 
+/*
+    @Test
+    public void assertWelcomeMessage(){
+        SignUpPage signUp = clickLoginButton(getDriver());
+        Assert.assertEquals(signUp.(), "Sign Up", "ERROR, NOT THE SAME");
+
+    }*/
 
     @Test
-    public void goToLogInButton(){
-        HomePage homePage = clickLoginButton(getDriver());
-
+    public void loginSuccesful() {
+        SignInPage signInPage = succesfulLogin(getDriver());
+        Assert.assertEquals(signInPage.userInfo(), " tomasbraino - user account", "NOT THE SAME");
     }
 
 
-   /* @Test
+    @Test
     public void validateEmptyEmailLogin() {
         HomePage homePage = emptyEmail(getDriver());
-        Assert.assertEquals(,"","The email field is empty");
+        Assert.assertEquals(email, "", "The email field is empty");
 
-
-    }*/
+    }
 
    /* @Test
     public void validateEmptyPasswordLogin() {
