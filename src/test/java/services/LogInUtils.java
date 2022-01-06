@@ -1,8 +1,8 @@
 package services;
 
 import com.solvd.pages.HomePage;
-import com.solvd.pages.LoginPopUp;
 import com.solvd.pages.SignInPage;
+import com.solvd.pages.SignUpPage;
 import org.openqa.selenium.WebDriver;
 
 public interface LogInUtils {
@@ -17,29 +17,39 @@ public interface LogInUtils {
     }
 
     default SignInPage succesfulLogin(WebDriver driver) {
-        HomePage homePage = clickLoginButton(driver);
-        LoginPopUp loginPopUp = new LoginPopUp(driver);
-        loginPopUp.setEmail(email);
-        loginPopUp.setPassword(password);
-        loginPopUp.goToLoginPage();
+        HomePage homePage = new HomePage(driver);
+        homePage.fillEmailField(email);
+        homePage.fillPasswordField(password);
+        homePage.clickSignInButton();
         return new SignInPage(driver);
     }
 
+
     default HomePage emptyEmail(WebDriver driver) {
-        HomePage homePage = clickLoginButton(driver);
-        LoginPopUp loginPopUp = new LoginPopUp(driver);
-        loginPopUp.setEmail("");
-        loginPopUp.goToLoginPage();
-        return loginPopUp.redirect();
+        HomePage homePage = new HomePage(driver);
+        homePage.clickLoginButton1();
+        homePage.fillPasswordField(password);
+        return homePage;
+
     }
 
-    default HomePage emptyPassword(WebDriver driver) {
-        HomePage homePage = clickLoginButton(driver);
-        LoginPopUp loginPopUp = new LoginPopUp(driver);
-        loginPopUp.setPassword("");
-        loginPopUp.goToLoginPage();
-        return loginPopUp.redirect();
+  /*  default HomePage defaultEmail(WebDriver driver) {
+        HomePage homePage = new HomePage(driver);
+
     }
+
+    default HomePage defaultPassword(WebDriver driver) {
+        HomePage homePage = new HomePage(driver);
+
+    }
+
+
+        default HomePage emptyPassword(WebDriver driver) {
+            HomePage homePage = new HomePage(driver);
+              homePage.clickLoginButton1();
+              homePage.fillEmailField(email);
+             return homePage;
+        }*/
 
 
 }

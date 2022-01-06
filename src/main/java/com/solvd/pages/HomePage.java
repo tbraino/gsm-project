@@ -10,16 +10,29 @@ import org.openqa.selenium.support.FindBy;
 public class HomePage extends AbstractPage {
     private WebDriver driver;
 
-    @FindBy (xpath = "//*[@id=\"login-active\"]/span")
+    @FindBy(xpath = "//*[@id=\"login-active\"]/i")
     private ExtendedWebElement loginButton1;
 
-    @FindBy (xpath = "//*[@id=\"nick-submit\"]")
+    @FindBy(xpath = "//*[@id=\"login-popup2\"]")
+    private ExtendedWebElement loginDropDown;
+
+    @FindBy(xpath = "//*[@id=\"email\"]")
+    private ExtendedWebElement emailField;
+
+    @FindBy(xpath = "//*[@id=\"upass\"]")
+    private ExtendedWebElement passwordField;
+
+
+    @FindBy(xpath = "//*[@id=\"nick-submit\"]")
+    private ExtendedWebElement signInButton;
+
+    @FindBy(xpath = "//*[@id=\"social-connect\"]/a[8]/i")
     private ExtendedWebElement signUpButton;
 
-    @FindBy (xpath = "//*[@id=\"social-connect\"]/a[8]/i")
+    @FindBy(xpath = "//*[@id=\"social-connect\"]/a[8]/i")
     private ExtendedWebElement logOutButton;
 
-    @FindBy (xpath = "//*[@id=\"topsearch-text\"]")
+    @FindBy(xpath = "//*[@id=\"topsearch-text\"]")
     private ExtendedWebElement searchField;
 
 
@@ -28,23 +41,37 @@ public class HomePage extends AbstractPage {
         open();
     }
 
-    public LoginPopUp clickLoginButton1() {
+    public void clickLoginButton1() {
 
         loginButton1.clickIfPresent();
-        return new LoginPopUp(driver);
     }
 
-    public SignUpPage clickSignUpButton(){
+    public SignInPage clickSignInButton() {
+
+        signInButton.clickIfPresent();
+        return new SignInPage(driver);
+    }
+
+
+    public void fillEmailField(String email) {
+        emailField.type(email);
+    }
+
+    public void fillPasswordField(String password) {
+        passwordField.type(password);
+    }
+
+    public SignUpPage clickSignUpButton() {
         signUpButton.clickIfPresent();
         return new SignUpPage(driver);
     }
 
-    public HomePage clickLogOutButton(){
+    public HomePage clickLogOutButton() {
         logOutButton.clickIfPresent();
         return new HomePage(driver);
     }
 
-    public SearchField clickSearch(){
+    public SearchField clickSearch() {
         searchField.clickIfPresent();
         return new SearchField(driver);
     }
