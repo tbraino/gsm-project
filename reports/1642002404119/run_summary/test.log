@@ -1,0 +1,2 @@
+[2022-01-12 12:46:47] [IMessager.java] [1] [INFO] INFO: '**************** Test execution summary ****************'.
+[2022-01-12 12:46:47] [IMessager.java] [1] [INFO] RESULT #1: TEST [gsm-project - validateErrorMessage] FAIL [log=file:///Users/tomasbrainovich/IdeaProjects/gsm-project/./reports/1642002404119/60dd02b4-e269-4114-a740-00fe9701c8f8/test.log]

@@ -7,22 +7,19 @@ import org.openqa.selenium.support.FindBy;
 
 public class SearchField extends AbstractPage {
     WebDriver driver;
-    String model = "";
-
 
     @FindBy(name = "sSearch")
     private ExtendedWebElement sSearch;
 
+    @FindBy(className = "section")
+    private ExtendedWebElement errorMessage;
 
-    public SearchField(WebDriver driver){
+    public SearchField(WebDriver driver) {
         super(driver);
     }
 
-    public void searchPhone(WebDriver driver){
-
+    public String getErrorMesage() {
+        return errorMessage.getText();
     }
-
-
-
 
 }

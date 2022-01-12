@@ -1,0 +1,2 @@
+[2022-01-10 05:38:53] [IMessager.java] [1] [INFO] INFO: '**************** Test execution summary ****************'.
+[2022-01-10 05:38:53] [IMessager.java] [1] [INFO] RESULT #1: TEST [gsm-project - assertWelcomeMessage] FAIL [screenshots=file:///Users/tomasbrainovich/IdeaProjects/gsm-project/./reports/1641847105937/b82f88a3-87df-45a5-a5e8-f12b676c7885/report.html | log=file:///Users/tomasbrainovich/IdeaProjects/gsm-project/./reports/1641847105937/b82f88a3-87df-45a5-a5e8-f12b676c7885/test.log]

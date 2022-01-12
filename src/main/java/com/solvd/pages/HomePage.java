@@ -3,8 +3,10 @@ package com.solvd.pages;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractPage;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 public class HomePage extends AbstractPage {
@@ -21,7 +23,6 @@ public class HomePage extends AbstractPage {
 
     @FindBy(xpath = "//*[@id=\"upass\"]")
     private ExtendedWebElement passwordField;
-
 
     @FindBy(xpath = "//*[@id=\"nick-submit\"]")
     private ExtendedWebElement signInButton;
@@ -55,7 +56,6 @@ public class HomePage extends AbstractPage {
         return new SignInPage(driver);
     }
 
-
     public void fillEmailField(String email) {
         emailField.type(email);
     }
@@ -78,11 +78,13 @@ public class HomePage extends AbstractPage {
         return new HomePage(driver);
     }
 
-    public SearchField clickSearch() {
-        searchField.clickIfPresent();
-        return new SearchField(driver);
+    public void fillSearchField(String search) {
+        searchField.type(search);
     }
 
-
+    public SearchField performSearch() {
+        new Actions(driver).sendKeys(Keys.ENTER).perform();
+        return new SearchField(driver);
+    }
 
 }

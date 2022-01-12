@@ -2,11 +2,13 @@ package tests;
 
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.solvd.pages.HomePage;
+import com.solvd.pages.SearchField;
 import com.solvd.pages.SignInPage;
 import com.solvd.pages.SignUpPage;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import services.LogInUtils;
 import services.SignUpUtils;
@@ -54,9 +56,23 @@ public class GsmTests implements IAbstractTest, LogInUtils, SignUpUtils {
     }
 
     @Test
-    public void validateInvalidNameSignUp(){
+    public void validateInvalidNameSignUp() {
         SignUpPage signUpPage = emptyNickNameSignUp(getDriver());
-        Assert.assertTrue(true,"Nickname invalid");
+        Assert.assertTrue(true, "Nickname invalid");
+    }
+
+    /*@DataProvider(name = "brandSearch")
+    public Object[] getBrand() {
+        return new Object[];
+    }*/
+
+    @Test()
+    public void validateErrorMessage() {
+        HomePage homePage = new HomePage(getDriver());
+        homePage.fillSearchField("Samsung");
+        homePage.performSearch();
+        SearchField searchField = new SearchField(getDriver());
+        Assert.assertEquals(searchField.getErrorMesage(), "We're sorry, we found no results", "Are equals");
     }
 
 
